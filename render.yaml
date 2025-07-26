@@ -1,0 +1,15 @@
+services:
+  - type: web
+    name: evolution-api
+    env: docker
+    plan: free # or change to standard if you need more power
+    dockerfilePath: ./Dockerfile
+    autoDeploy: true
+    envVars:
+      - key: NODE_ENV
+        value: production
+      - key: AUTHENTICATION_API_KEY
+        generateValue: true # Modify as per your needs
+      - key: PORT
+        value: 8080
+    healthCheckPath: /
